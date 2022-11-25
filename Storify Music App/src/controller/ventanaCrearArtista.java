@@ -84,13 +84,19 @@ public class ventanaCrearArtista {
 			genero = "electronica";
 		}
 
-		if (!tipoArtista.getSelectedToggle().equals(null) && !GeneroArt.getSelectedToggle().equals(null)
-				&& !txtCodArtista.getText().equals("") && !txtNacionalidad.getText().equals("")
-				&& !txtNombreArt.getText().equals("")) {
-			aplicacion.crearArtistaFull(nombre, nacionalidad, codigo, genero, duo);
-		} else {
+		try {
+			if (!tipoArtista.getSelectedToggle().equals(null) && !GeneroArt.getSelectedToggle().equals(null)
+					&& !txtCodArtista.getText().equals("") && !txtNacionalidad.getText().equals("")
+					&& !txtNombreArt.getText().equals("")) {
+				aplicacion.crearArtistaFull(nombre, nacionalidad, codigo, genero, duo);
+			} else {
+				mostrarMensajeError("por favor verifique la información");
+			}
+		} catch (Exception e) {
 			mostrarMensajeError("por favor verifique la información");
 		}
+		
+		
 
 	}
 
