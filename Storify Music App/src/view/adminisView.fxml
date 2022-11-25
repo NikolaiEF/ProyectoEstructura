@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="569.0" prefWidth="414.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaAdminController">
+   <children>
+      <Button layoutX="227.0" layoutY="295.0" mnemonicParsing="false" onAction="#crearArtista" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar autor">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="160.0" fitWidth="144.0" layoutX="149.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/26834.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="142.0" layoutY="14.0" prefHeight="42.0" prefWidth="158.0" text="Storify Music">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="228.0" layoutY="369.0" mnemonicParsing="false" onAction="#SubirCancion" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar Nueva Pista">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="296.0" layoutY="517.0" mnemonicParsing="false" onAction="#Devolver" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: orange;" text="Volver" />
+      <Button layoutX="229.0" layoutY="441.0" mnemonicParsing="false" onAction="#cancionesArtis" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Pistas del artista">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tablaArtistas" layoutX="22.0" layoutY="295.0" prefHeight="247.0" prefWidth="199.0">
+        <columns>
+          <TableColumn fx:id="columnNombreArt" prefWidth="92.0" text="Nombre" />
+          <TableColumn fx:id="columnCodArt" prefWidth="107.0" text="Codigo" />
+        </columns>
+      </TableView>
+      <Text layoutX="146.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrador">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

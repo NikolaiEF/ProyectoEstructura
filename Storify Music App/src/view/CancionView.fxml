@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="472.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CancionVIewController">
+   <children>
+      <Pane layoutX="360.0" prefHeight="472.0" prefWidth="166.0" style="-fx-background-color: gray;">
+         <children>
+            <Label layoutX="17.0" layoutY="204.0" text="Genero">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="RBreggaeton" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" text="Reggaeton">
+               <toggleGroup>
+                  <ToggleGroup fx:id="GeneroCancion" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="RBrock" layoutX="14.0" layoutY="283.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" text="Rock" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpunk" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpop" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" text="Pop" toggleGroup="$GeneroCancion" />
+            <Button layoutX="52.0" layoutY="421.0" mnemonicParsing="false" onAction="#Devolver" style="-fx-background-color: orange;" text="Volver">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <RadioButton fx:id="RBelectronica" layoutX="14.0" layoutY="377.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroCancion" />
+            <ImageView fitHeight="132.0" fitWidth="185.0" layoutX="16.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/26834.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="txtNombCancion" layoutX="189.0" layoutY="211.0" promptText="Nombre de cancion" />
+      <TextField fx:id="txtArtista" layoutX="21.0" layoutY="211.0" promptText="Artista" />
+      <Button layoutX="21.0" layoutY="270.0" mnemonicParsing="false" onAction="#GenerarCodigo" prefHeight="25.0" prefWidth="149.0" text="Generar Codigo" />
+      <TextField fx:id="txtAlbum" layoutX="189.0" layoutY="350.0" promptText="Nombre del album" />
+      <Button layoutX="131.0" layoutY="393.0" mnemonicParsing="false" onAction="#GuardarCancion" prefHeight="43.0" prefWidth="109.0" text="Agregar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="138.0" layoutY="88.0" prefHeight="36.0" prefWidth="78.0" text="Music">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtURL" layoutX="21.0" layoutY="350.0" promptText="Url Youtube" />
+      <TextArea fx:id="txtCodigo" layoutX="189.0" layoutY="270.0" prefHeight="25.0" prefWidth="149.0" promptText="Codigo Cancion" />
+      <Separator layoutX="14.0" layoutY="320.0" prefHeight="0.0" prefWidth="325.0" />
+      <Text layoutX="102.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storify">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="102.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar nuevas pistas">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
