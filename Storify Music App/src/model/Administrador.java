@@ -2,15 +2,13 @@ package model;
 
 import java.io.Serializable;
 
-public class Administrador implements Serializable{
+public class Administrador implements Serializable {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nombre, clave;
-
-
 
 	public Administrador(String nombre, String clave) {
 		super();
@@ -38,9 +36,5 @@ public class Administrador implements Serializable{
 	public String toString() {
 		return "Administrador [nombre=" + nombre + "]";
 	}
-
-
-
-
 
 }

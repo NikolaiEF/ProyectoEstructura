@@ -1,6 +1,5 @@
 package application;
 
-
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -24,7 +23,6 @@ import model.Artista;
 import model.Cancion;
 import model.Reproductor;
 
-
 public class Main extends Application {
 
 	private Stage primaryStage;
@@ -35,8 +33,8 @@ public class Main extends Application {
 	}
 
 	/*
-	 * En este espacio se encuentran los metodos para mostrar las diferentes
-	 * views del programa (non-Javadoc)
+	 * En este espacio se encuentran los metodos para mostrar las diferentes views
+	 * del programa (non-Javadoc)
 	 * 
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 */
@@ -46,12 +44,10 @@ public class Main extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Storify Music");
 		this.primaryStage.setResizable(false);
-		mostrarVentanaBienvenida();
-		System.out.println("que rico");
-
+		showLogin();
 	}
 
-	public void mostrarVentanaBienvenida() {
+	public void showLogin() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/LoginView.fxml"));
@@ -66,7 +62,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaCrearUsuario() {
+	public void showCrearUserView() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/agregarUsuarioView.fxml"));
@@ -81,7 +77,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaUsuario(String usuario) {
+	public void showUserView(String usuario) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/UsuarioView.fxml"));
@@ -97,10 +93,10 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaAdmin() {
+	public void showAdminView() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("view/adminisView.fxml"));
+			loader.setLocation(Main.class.getResource("/view/adminisView.fxml"));
 			AnchorPane rootLayout = (AnchorPane) loader.load();
 			ventanaAdminController ventanaAdmin = loader.getController();
 			ventanaAdmin.setAplicacion(this);
@@ -112,7 +108,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaCrearArtista() {
+	public void showCrearArtistaView() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/CrearArtistaView.fxml"));
@@ -127,7 +123,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaCancion() {
+	public void showCancion() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/CancionView.fxml"));
@@ -150,16 +146,16 @@ public class Main extends Application {
 	public void ingresarUsuario(String usuario, String contrasena) {
 		boolean verify = storify.ingresarUser(usuario, contrasena);
 		if (verify) {
-			mostrarVentanaUsuario(usuario);
+			showUserView(usuario);
 		} else {
-			mostrarMensajeError("Los datos ingresados estan errados");
+			mostrarMensajeError("Los datos ingresados son incorrectos");
 		}
 	}
 
 	public void ingresarAdmin(String usuario, String contrasena) {
 		boolean verify = storify.ingresarAdmin(usuario, contrasena);
 		if (verify) {
-			mostrarVentanaAdmin();
+			showAdminView();
 		} else {
 			mostrarMensajeError("Los datos ingresados estan errados");
 		}
@@ -167,19 +163,18 @@ public class Main extends Application {
 	}
 
 	/*
-	 * En este espacio se encuentran los metodos para crear los distintos
-	 * objetos
+	 * En este espacio se encuentran los metodos para crear los distintos objetos
 	 */
 
 	public void crearArt() {
-		mostrarVentanaCrearArtista();
+		showCrearArtistaView();
 
 	}
 
 	public void crearUsuario(String nombre, String apellido, String clave, String correo) {
 		boolean verify = storify.crearUser(nombre, apellido, clave, correo);
 		if (verify) {
-			mostrarVentanaBienvenida();
+			showLogin();
 		} else {
 			mostrarMensajeError("El usuario no puede ser creado");
 		}
@@ -189,7 +184,7 @@ public class Main extends Application {
 	public void crearArtistaFull(String nombre, String nacionalidad, String codigo, String genero, boolean duo) {
 		boolean verify = storify.crearArtista(nombre, nacionalidad, codigo, genero, duo);
 		if (verify) {
-			mostrarVentanaAdmin();
+			showAdminView();
 		} else {
 			mostrarMensajeError("Los datos ingresados estan errados");
 		}
@@ -200,7 +195,7 @@ public class Main extends Application {
 		boolean verify = storify.crearCanc(duracion, nombre, album, anio, uRL, artista, codigo, genero);
 
 		if (verify) {
-			mostrarVentanaAdmin();
+			showAdminView();
 		} else {
 			mostrarMensajeError("Los datos ingresados estan errados");
 		}
@@ -208,15 +203,15 @@ public class Main extends Application {
 	}
 
 	public void subirCancion() {
-		mostrarVentanaCancion();
+		showCancion();
 	}
 
 	public void devolverInicio() {
-		mostrarVentanaAdmin();
+		showAdminView();
 	}
 
 	public void devolverLogin() {
-		mostrarVentanaBienvenida();
+		showLogin();
 	}
 
 	public String generarCodigo() {
@@ -256,7 +251,6 @@ public class Main extends Application {
 	}
 
 	private boolean mostrarMensajeInformacion(String mensaje) {
-
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setHeaderText(null);
 		alert.setTitle("Informacion");
@@ -285,5 +279,3 @@ public class Main extends Application {
 	}
 
 }
-
-

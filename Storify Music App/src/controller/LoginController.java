@@ -1,6 +1,5 @@
 package controller;
 
-
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,11 +9,8 @@ import javafx.scene.control.TextField;
 public class LoginController {
 	Main aplicacion;
 
-
-
 	@FXML
 	private PasswordField txtPassw;
-
 
 	@FXML
 	private TextField txtUsuario;
@@ -43,6 +39,6 @@ public class LoginController {
 
 	@FXML
 	void crearUsu(ActionEvent event) {
-		aplicacion.mostrarVentanaCrearUsuario();
+		aplicacion.showCrearUserView();
 	}
 }

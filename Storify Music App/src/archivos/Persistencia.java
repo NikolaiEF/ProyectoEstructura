@@ -10,13 +10,13 @@ import model.Reproductor;
 
 public class Persistencia {
 
-    public static final String RUTA_ARCHIVO_MODELO_REPRO_XML = "src/archivos/modelo.xml";
+    public static final String URL_PERSIT = "src/archivos/modelo.xml";
 
 
     public static Reproductor cargarRecursoXML() {
     	Reproductor repro = null;
             try {
-                repro = (Reproductor) cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_REPRO_XML);
+                repro = (Reproductor) cargarRecursoSerializadoXML(URL_PERSIT);
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -26,7 +26,7 @@ public class Persistencia {
 
     public static void guardarRecursoXML(Reproductor repro) {
             try {
-                 salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_REPRO_XML, repro);
+                 salvarRecursoSerializadoXML(URL_PERSIT, repro);
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -12,64 +12,58 @@ import model.Artista;
 
 public class ventanaAdminController {
 
-		Main aplicacion;
+	Main aplicacion;
 
-		private ObservableList<Artista> listaArtistasData= FXCollections.observableArrayList();
+	private ObservableList<Artista> listaArtistasData = FXCollections.observableArrayList();
 
-		@FXML
-	     private TableView<Artista> tablaArtistas;
+	@FXML
+	private TableView<Artista> tablaArtistas;
 
-	     @FXML
-	     private TableColumn<String, Artista> columnNombreArt;
+	@FXML
+	private TableColumn<String, Artista> columnNombreArt;
 
-	     @FXML
-	     private TableColumn<String, Artista> columnCodArt;
+	@FXML
+	private TableColumn<String, Artista> columnCodArt;
 
+	public void setAplicacion(Main aplicacion) {
+		this.aplicacion = aplicacion;
+		tablaArtistas.getItems().clear();
+		tablaArtistas.setItems(getListaArtistas());
 
+	}
 
+	private ObservableList<Artista> getListaArtistas() {
 
-		public void setAplicacion(Main aplicacion) {
-			this.aplicacion = aplicacion;
-			tablaArtistas.getItems().clear();
-			tablaArtistas.setItems(getListaArtistas());
+		listaArtistasData.addAll(aplicacion.obtenerArtista());
 
-		}
+		return listaArtistasData;
+	}
 
+	@FXML
+	void initialize() {
+		this.columnCodArt.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+		this.columnNombreArt.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-	 	private ObservableList<Artista> getListaArtistas() {
+	}
 
-	 		listaArtistasData.addAll(aplicacion.obtenerArtista());
+	@FXML
+	void crearArtista(ActionEvent event) {
+		aplicacion.crearArt();
 
-	 		return listaArtistasData;
-		}
+	}
 
+	@FXML
+	void SubirCancion(ActionEvent event) {
 
-	 	@FXML
-	 	void initialize() {
-	 		this.columnCodArt.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-	 		this.columnNombreArt.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		aplicacion.subirCancion();
 
-	 	}
+	}
 
-		@FXML
-	    void crearArtista(ActionEvent event) {
-	 		aplicacion.crearArt();
+	@FXML
+	void Devolver(ActionEvent event) {
 
-	    }
+		aplicacion.devolverLogin();
 
-	    @FXML
-	    void SubirCancion(ActionEvent event) {
-
-	    	aplicacion.subirCancion();
-
-	    }
-
-	    @FXML
-	    void Devolver(ActionEvent event) {
-
-	    	aplicacion.devolverLogin();
-
-	    }
-
+	}
 
 }

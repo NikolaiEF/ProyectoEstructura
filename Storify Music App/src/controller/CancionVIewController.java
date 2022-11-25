@@ -21,121 +21,114 @@ public class CancionVIewController {
 	}
 
 	@FXML
-    private RadioButton RBreggaeton;
+	private RadioButton RBreggaeton;
 
-    @FXML
-    private RadioButton RBpop;
+	@FXML
+	private RadioButton RBpop;
 
-    @FXML
-    private ImageView IMVcaratula;
+	@FXML
+	private ImageView IMVcaratula;
 
-    @FXML
-    private TextField txtNombCancion;
+	@FXML
+	private TextField txtNombCancion;
 
-    @FXML
-    private ToggleGroup GeneroCancion;
+	@FXML
+	private ToggleGroup GeneroCancion;
 
-    @FXML
-    private TextField txtCodigo;
+	@FXML
+	private TextField txtCodigo;
 
-    @FXML
-    private RadioButton RBelectronica;
+	@FXML
+	private RadioButton RBelectronica;
 
-    @FXML
-    private RadioButton RBrock;
+	@FXML
+	private RadioButton RBrock;
 
-    @FXML
-    private TextField txtDuracion;
+	@FXML
+	private TextField txtDuracion;
 
-    @FXML
-    private TextField txtAlbum;
+	@FXML
+	private TextField txtAlbum;
 
-    @FXML
-    private RadioButton RBpunk;
+	@FXML
+	private RadioButton RBpunk;
 
-    @FXML
-    private TextField txtDirImagen;
+	@FXML
+	private TextField txtDirImagen;
 
-    @FXML
-    private TextField txtAnio;
+	@FXML
+	private TextField txtAnio;
 
-    @FXML
-    private TextField txtURL;
+	@FXML
+	private TextField txtURL;
 
-    @FXML
-    private TextField txtArtista;
+	@FXML
+	private TextField txtArtista;
 
-    @FXML
-    void CargarCaratula(ActionEvent event) {
+	@FXML
+	void CargarCaratula(ActionEvent event) {
 
-    	FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Buscar Imagen");
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Buscar Imagen");
 
-        // Agregar filtros para facilitar la busqueda
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
-        );
+		// Agregar filtros para facilitar la busqueda
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"), new FileChooser.ExtensionFilter("PNG", "*.png"));
 
-        // Obtener la imagen seleccionada
-        File imgFile = fileChooser.showOpenDialog(aplicacion.getPrimaryStage());
+		// Obtener la imagen seleccionada
+		File imgFile = fileChooser.showOpenDialog(aplicacion.getPrimaryStage());
 
-        // Mostar la imagen
-        if (imgFile != null) {
-            Image image = new Image("file:" + imgFile.getAbsolutePath());
-            IMVcaratula.setImage(image);
-        }
+		// Mostar la imagen
+		if (imgFile != null) {
+			Image image = new Image("file:" + imgFile.getAbsolutePath());
+			IMVcaratula.setImage(image);
+		}
 
-    }
+	}
 
+	@FXML
+	void GenerarCodigo(ActionEvent event) {
 
-    @FXML
-    void GenerarCodigo(ActionEvent event) {
+		String codigo = aplicacion.generarCodigo();
 
-    	String codigo = aplicacion.generarCodigo();
+		txtCodigo.setText(codigo);
 
-    	txtCodigo.setText(codigo);
+	}
 
-    }
+	@FXML
+	void GuardarCancion(ActionEvent event) {
 
-    @FXML
-    void GuardarCancion(ActionEvent event) {
+		String duracion = txtDuracion.getText();
+		String nombre = txtNombCancion.getText();
+		String album = txtAlbum.getText();
+		String anio = txtAnio.getText();
+		String URL = txtURL.getText();
+		String artista = txtArtista.getText();
+		String codigo = txtCodigo.getText();
 
-    	String duracion = txtDuracion.getText();
-    	String nombre = txtNombCancion.getText();
-    	String album = txtAlbum.getText();
-    	String anio = txtAnio.getText();
-    	String URL = txtURL.getText();
-    	String artista = txtArtista.getText();
-    	String codigo = txtCodigo.getText();
+		String genero;
 
+		if (RBreggaeton.isSelected()) {
+			genero = "reggeaton";
+		} else if (RBrock.isSelected()) {
+			genero = "rock";
+		} else if (RBpop.isSelected()) {
+			genero = "pop";
+		} else if (RBpunk.isSelected()) {
+			genero = "punk";
+		} else {
+			genero = "electronica";
+		}
 
-    	String genero;
+		aplicacion.crearCancion(duracion, nombre, album, anio, URL, artista, codigo, genero);
 
-    	if(RBreggaeton.isSelected()){
-    		genero = "reggeaton";
-    	}else if (RBrock.isSelected()){
-    		genero = "rock";
-    	}else if (RBpop.isSelected()){
-    		genero = "pop";
-    	}else if (RBpunk.isSelected()){
-    		genero = "punk";
-    	}else{
-    		genero = "electronica";
-    	}
+	}
 
-    	aplicacion.crearCancion(duracion, nombre, album, anio, URL, artista, codigo, genero);
+	@FXML
+	void Devolver(ActionEvent event) {
 
-    }
+		aplicacion.devolverInicio();
 
-    @FXML
-    void Devolver(ActionEvent event) {
-
-    	aplicacion.devolverInicio();
-
-    }
-
-
+	}
 
 }
