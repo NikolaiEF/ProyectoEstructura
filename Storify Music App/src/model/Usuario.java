@@ -1,13 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class Usuario {
 
 	private String nombre, apellido, correo, clave, confClave1;
-	ListaDoble <Cancion> listaRepr = new ListaDoble<Cancion>();
+	ListaDoble<Cancion> listaRepr = new ListaDoble<Cancion>();
 	ArrayList<Cancion> listaCancionesView = new ArrayList<Cancion>();
 
 	public Usuario() {
@@ -62,8 +66,6 @@ public class Usuario {
 		this.confClave1 = confClave1;
 	}
 
-
-
 	public ListaDoble<Cancion> getListaRepr() {
 		return listaRepr;
 	}
@@ -71,8 +73,6 @@ public class Usuario {
 	public ArrayList<Cancion> getListaReprtoArray() {
 		return listaRepr.getContent();
 	}
-
-
 
 	public void setListaRepr(ListaDoble<Cancion> listaRepr) {
 		this.listaRepr = listaRepr;
@@ -86,18 +86,18 @@ public class Usuario {
 		this.listaCancionesView = listaCanciones;
 	}
 
-	public void agregarCancionMiLista(Cancion cancion){
+	public void agregarCancionMiLista(Cancion cancion) {
 		boolean existe = false;
 		for (Cancion c : listaCancionesView) {
 			if (c.getNombre().equalsIgnoreCase(cancion.getNombre())) {
 				existe = true;
-				JOptionPane.showMessageDialog(null, "La cancion no fue agregada porque ya está agregada");
+				mostrarMensajeError("Esta cancion ya fue agregada");
 			}
 		}
 		if (existe == false) {
 			listaRepr.agregarfinal(cancion);
 			listaCancionesView.add(cancion);
-			JOptionPane.showMessageDialog(null, "La cancion  fue agregada exitosamente a tu lista");
+			mostrarMensajeError("Se a agregado la cancion");
 		}
 	}
 
@@ -109,8 +109,35 @@ public class Usuario {
 	public void eliminarCancionMiLista(Cancion cancionSeleccionadaMias) {
 		listaRepr.eliminar(cancionSeleccionadaMias);
 		listaCancionesView.remove(cancionSeleccionadaMias);
-		JOptionPane.showMessageDialog(null, "La cancion ha sido eliminada con exito");
+		mostrarMensajeInformacion("La cancion fue eliminada");
 	}
 
+	private boolean mostrarMensajeInformacion(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setHeaderText(null);
+		alert.setTitle("Informacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private boolean mostrarMensajeError(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setHeaderText(null);
+		alert.setTitle("Confirmacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
