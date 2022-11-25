@@ -50,15 +50,15 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <RadioButton fx:id="RBreggaeton" layoutX="253.0" layoutY="237.0" mnemonicParsing="false" text="Reggaeton">
+      <RadioButton fx:id="RBreggaeton" layoutX="253.0" layoutY="324.0" mnemonicParsing="false" text="Reggaeton">
          <toggleGroup>
             <ToggleGroup fx:id="GeneroArt" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="RBpop" layoutX="253.0" layoutY="257.0" mnemonicParsing="false" text="pop" toggleGroup="$GeneroArt" />
-      <RadioButton fx:id="RBrock" layoutX="253.0" layoutY="277.0" mnemonicParsing="false" text="Rock" toggleGroup="$GeneroArt" />
-      <RadioButton fx:id="RBelectronica" layoutX="253.0" layoutY="297.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroArt" />
-      <RadioButton fx:id="RBpunk" layoutX="253.0" layoutY="317.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroArt" />
+      <RadioButton fx:id="RBpop" layoutX="253.0" layoutY="255.0" mnemonicParsing="false" text="pop" toggleGroup="$GeneroArt" />
+      <RadioButton fx:id="RBrock" layoutX="253.0" layoutY="234.0" mnemonicParsing="false" text="Rock" toggleGroup="$GeneroArt" />
+      <RadioButton fx:id="RBelectronica" layoutX="253.0" layoutY="277.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" text="Electronica" toggleGroup="$GeneroArt" />
+      <RadioButton fx:id="RBpunk" layoutX="253.0" layoutY="300.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroArt" />
       <TextField fx:id="txtNombreArt" layoutX="31.0" layoutY="201.0" prefHeight="30.0" prefWidth="154.0" promptText="Nombre de Artista" />
       <TextField fx:id="txtNacionalidad" layoutX="31.0" layoutY="242.0" prefHeight="30.0" prefWidth="154.0" promptText="Nacionalidad" />
       <TextField fx:id="txtCodArtista" layoutX="31.0" layoutY="279.0" prefHeight="30.0" prefWidth="154.0" promptText="Asignar Código" />

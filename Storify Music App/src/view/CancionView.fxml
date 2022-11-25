@@ -18,25 +18,25 @@
    <children>
       <Pane layoutX="360.0" prefHeight="472.0" prefWidth="166.0" style="-fx-background-color: gray;">
          <children>
-            <Label layoutX="17.0" layoutY="204.0" text="Genero">
+            <Label layoutX="17.0" layoutY="202.0" text="Genero">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <RadioButton fx:id="RBreggaeton" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" text="Reggaeton">
+            <RadioButton fx:id="RBreggaeton" layoutX="19.0" layoutY="346.0" mnemonicParsing="false" text="Reggaeton">
                <toggleGroup>
                   <ToggleGroup fx:id="GeneroCancion" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="RBrock" layoutX="14.0" layoutY="283.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" text="Rock" toggleGroup="$GeneroCancion" />
-            <RadioButton fx:id="RBpunk" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroCancion" />
-            <RadioButton fx:id="RBpop" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" text="Pop" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBrock" layoutX="19.0" layoutY="236.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" text="Rock" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpunk" layoutX="18.0" layoutY="317.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpop" layoutX="18.0" layoutY="262.0" mnemonicParsing="false" text="Pop" toggleGroup="$GeneroCancion" />
             <Button layoutX="52.0" layoutY="421.0" mnemonicParsing="false" onAction="#Devolver" style="-fx-background-color: orange;" text="Volver">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <RadioButton fx:id="RBelectronica" layoutX="14.0" layoutY="377.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBelectronica" layoutX="18.0" layoutY="289.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroCancion" />
             <ImageView fitHeight="132.0" fitWidth="185.0" layoutX="16.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/26834.png" />
@@ -48,7 +48,7 @@
       <TextField fx:id="txtArtista" layoutX="21.0" layoutY="211.0" promptText="Artista" />
       <Button layoutX="21.0" layoutY="270.0" mnemonicParsing="false" onAction="#GenerarCodigo" prefHeight="25.0" prefWidth="149.0" text="Generar Codigo" />
       <TextField fx:id="txtAlbum" layoutX="189.0" layoutY="350.0" promptText="Nombre del album" />
-      <Button layoutX="131.0" layoutY="393.0" mnemonicParsing="false" onAction="#GuardarCancion" prefHeight="43.0" prefWidth="109.0" text="Agregar">
+      <Button layoutX="131.0" layoutY="400.0" mnemonicParsing="false" onAction="#GuardarCancion" prefHeight="43.0" prefWidth="109.0" text="Agregar">
          <font>
             <Font size="16.0" />
          </font>
@@ -59,7 +59,7 @@
          </font>
       </Label>
       <TextField fx:id="txtURL" layoutX="21.0" layoutY="350.0" promptText="Url Youtube" />
-      <TextArea fx:id="txtCodigo" layoutX="189.0" layoutY="270.0" prefHeight="25.0" prefWidth="149.0" promptText="Codigo Cancion" />
+      <TextArea fx:id="txtCodigo" layoutX="188.0" layoutY="263.0" prefHeight="3.0" prefWidth="150.0" promptText="Codigo Cancion" />
       <Separator layoutX="14.0" layoutY="320.0" prefHeight="0.0" prefWidth="325.0" />
       <Text layoutX="102.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storify">
          <font>
