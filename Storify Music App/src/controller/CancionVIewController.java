@@ -6,6 +6,7 @@ import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -36,7 +37,7 @@ public class CancionVIewController {
 	private ToggleGroup GeneroCancion;
 
 	@FXML
-	private TextField txtCodigo;
+	private TextArea txtCodigo;
 
 	@FXML
 	private RadioButton RBelectronica;
@@ -98,10 +99,8 @@ public class CancionVIewController {
 	@FXML
 	void GuardarCancion(ActionEvent event) {
 
-		String duracion = txtDuracion.getText();
 		String nombre = txtNombCancion.getText();
 		String album = txtAlbum.getText();
-		String anio = txtAnio.getText();
 		String URL = txtURL.getText();
 		String artista = txtArtista.getText();
 		String codigo = txtCodigo.getText();
@@ -120,7 +119,7 @@ public class CancionVIewController {
 			genero = "electronica";
 		}
 
-		aplicacion.crearCancion(duracion, nombre, album, anio, URL, artista, codigo, genero);
+		aplicacion.crearCancion( nombre, album, URL, artista, codigo, genero);
 
 	}
 

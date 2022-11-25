@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="569.0" prefWidth="414.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaAdminController">
    <children>
-      <Button layoutX="227.0" layoutY="295.0" mnemonicParsing="false" onAction="#crearArtista" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar autor">
+      <Button layoutX="227.0" layoutY="349.0" mnemonicParsing="false" onAction="#crearArtista" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar autor">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -23,17 +23,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="228.0" layoutY="369.0" mnemonicParsing="false" onAction="#SubirCancion" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar Nueva Pista">
+      <Button layoutX="227.0" layoutY="426.0" mnemonicParsing="false" onAction="#SubirCancion" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Agregar Nueva Pista">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <Button layoutX="296.0" layoutY="517.0" mnemonicParsing="false" onAction="#Devolver" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: orange;" text="Volver" />
-      <Button layoutX="229.0" layoutY="441.0" mnemonicParsing="false" onAction="#cancionesArtis" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: orange;" text="Pistas del artista">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <TableView fx:id="tablaArtistas" layoutX="22.0" layoutY="295.0" prefHeight="247.0" prefWidth="199.0">
         <columns>
           <TableColumn fx:id="columnNombreArt" prefWidth="92.0" text="Nombre" />

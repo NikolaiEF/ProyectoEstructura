@@ -216,16 +216,16 @@ public class Reproductor implements Serializable{
 
 
 
-	public boolean crearCanc(String duracion, String nombre, String album, String anio, String uRL, String artista,
+	public boolean crearCanc(String nombre, String album, String uRL, String artista,
 			String codigo, String genero) {
 
 
 		Cancion cancion = new Cancion();
 
 		cancion.setAlbum(album);
-		cancion.setAnio(anio);
+	
 		cancion.setCodigo(codigo);
-		cancion.setDuracion(duracion);
+	
 		cancion.setGenero(genero);
 		cancion.setNombre(nombre);
 		cancion.setURL(uRL);

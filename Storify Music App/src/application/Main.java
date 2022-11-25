@@ -33,8 +33,8 @@ public class Main extends Application {
 	}
 
 	/*
-	 * En este espacio se encuentran los metodos para mostrar las diferentes views
-	 * del programa (non-Javadoc)
+	 * En este espacio se encuentran los metodos para mostrar las diferentes
+	 * views del programa (non-Javadoc)
 	 * 
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 */
@@ -163,7 +163,8 @@ public class Main extends Application {
 	}
 
 	/*
-	 * En este espacio se encuentran los metodos para crear los distintos objetos
+	 * En este espacio se encuentran los metodos para crear los distintos
+	 * objetos
 	 */
 
 	public void crearArt() {
@@ -190,9 +191,8 @@ public class Main extends Application {
 		}
 	}
 
-	public void crearCancion(String duracion, String nombre, String album, String anio, String uRL, String artista,
-			String codigo, String genero) {
-		boolean verify = storify.crearCanc(duracion, nombre, album, anio, uRL, artista, codigo, genero);
+	public void crearCancion(String nombre, String album, String uRL, String artista, String codigo, String genero) {
+		boolean verify = storify.crearCanc(nombre, album, uRL, artista, codigo, genero);
 
 		if (verify) {
 			showAdminView();
