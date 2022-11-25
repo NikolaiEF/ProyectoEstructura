@@ -1,10 +1,14 @@
 package controller;
 
+import java.util.Optional;
+
 import javax.swing.JOptionPane;
 
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -85,16 +89,28 @@ public class ventanaCrearArtista {
 				&& !txtNombreArt.getText().equals("")) {
 			aplicacion.crearArtistaFull(nombre, nacionalidad, codigo, genero, duo);
 		} else {
-			JOptionPane.showMessageDialog(null, "falta informacion");
+			mostrarMensajeError("por favor verifique la información");
 		}
 
 	}
 
 	@FXML
 	void Devolver(ActionEvent event) {
-
 		aplicacion.devolverInicio();
+	}
+	
+	private boolean mostrarMensajeError(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setHeaderText(null);
+		alert.setTitle("Confirmacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
 
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

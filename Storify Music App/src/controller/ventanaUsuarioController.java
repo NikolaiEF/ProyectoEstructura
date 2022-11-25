@@ -4,6 +4,7 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,8 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -128,16 +131,14 @@ public class ventanaUsuarioController {
 		sortedCancionData.comparatorProperty().bind(tablaListaTodasCanciones.comparatorProperty());
 		tablaListaTodasCanciones.setItems(sortedCancionData);
 
-		// Se limpia y se inicializan todas las canciones pero en la tabla de MIS
-		// CANCIONES
+
 		tablaListaMisCanciones.getItems().clear();
 		tablaListaMisCanciones.setItems(getListaCancionesMias());
 
 	}
 
 	private ObservableList<Cancion> getListaCancionesMias() {
-		// OJO ACA ES DONDE SE MANDA EL CORREO DEL USUARIO QUE ESTÁ USANDO LA SESION
-		// PARA OBTENER SUS CANCIONES
+	
 		listaCancionesMiasData.addAll(aplicacion.obtenerListaUser(this.correoUserIngresado));
 		return listaCancionesMiasData;
 	}
@@ -153,7 +154,7 @@ public class ventanaUsuarioController {
 			aplicacion.agregarCancionListaUser(correoUserIngresado, cancionSeleccionadaTodas);
 			actualizarTablaMiLista();
 		} else {
-			JOptionPane.showMessageDialog(null, "Seleccione primero la cancion imbecil");
+			mostrarMensajeError("Ninguna cancion ha sido seleccionada");
 		}
 	}
 
@@ -169,7 +170,7 @@ public class ventanaUsuarioController {
 			aplicacion.eliminarCancionUser(correoUserIngresado, cancionSeleccionadaMias);
 			actualizarTablaMiLista();
 		} else {
-			JOptionPane.showMessageDialog(null, "Seleccione primero la cancion imbecil");
+			mostrarMensajeError("Ninguna cancion ha sido seleccionada");
 		}
 	}
 
@@ -196,16 +197,30 @@ public class ventanaUsuarioController {
 				}
 				desktop.browse(uri);
 			} catch (IOException e) {
-				System.err.println("Error: No se pudo abrir el enlace" + e.getMessage());
+				mostrarMensajeError("No fue posible abrir el enlace " + e.getMessage());
 			}
 		} else {
-			System.err.println("Error: No se puede abrir enlaces web.");
+			mostrarMensajeError("Solo pueden ingresar enlaces de YouTube");
 		}
 	}
 
 	@FXML
 	void Salir(ActionEvent event) {
 		aplicacion.devolverLogin();
+	}
+	
+	private boolean mostrarMensajeError(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setHeaderText(null);
+		alert.setTitle("Confirmacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
