@@ -14,38 +14,37 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	private int peso;
 
 	/**
-	 * Verifica si un ï¿½rbol estï¿½ vacï¿½o
-	 * @return true si estï¿½ vacï¿½o
+	 * Metodo para verificar si el arbol esta vacio 
+	 * @return true si el arbol esta vacio 
 	 */
 	public boolean estaVacio() {
 		return raiz==null;
 	}
 
 	/**
-	 * Agrega un nuevo elemento al ï¿½rbol
-	 * @param elemento Nuevo dato
-	 * @return true si lo pudo guardar
+	 * Agrega un nuevo elemento al arbol
+	 * @param elemento Nuevo 
 	 */
 	public void agregar(T elemento) {
-		//TODO debe aumentar el peso cada que se agregue un nuevo elemento
+		
 		if(estaVacio()) {
 			raiz = new Nodo<>(elemento);
-			peso++;
+			peso++;   
 		}else if(raiz.agregar(elemento)) {
-			peso++;
-		}
+			peso++;  //Cada que se agrega un nuevo elemento al arbol, aumentamos su peso
+			}
 	}
 
 	/**
-	 * Realiza el recorrido inorden en el ï¿½rbol binario
+	 * Realiza el recorrido inorden en el arbol
 	 */
 	public void inorden() {
 		inorden(raiz);
 	}
 
 	/**
-	 * Realiza el recorrido inorden en el ï¿½rbol binario
-	 * @param n Nodo raï¿½z
+	 * recorrido inorden del arbol binario
+	 * @param n Nodo 
 	 */
 	private void inorden(Nodo<T> n) {
 		if(n!=null) {
@@ -56,8 +55,8 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	}
 
 	/**
-	 * Realiza el recorrido preorden en el ï¿½rbol binario
-	 * @param n Nodo raï¿½z
+	 * Realiza el recorrido preorden en el arbol
+	 * @param n Nodo 
 	 */
 	public void preorden(Nodo<T> n) {
 		if(n!=null) {
@@ -68,8 +67,8 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	}
 
 	/**
-	 * Realiza el recorrido postorden en el ï¿½rbol binario
-	 * @param n Nodo raï¿½z
+	 * Realiza el recorrido postorden en el arbol
+	 * @param n Nodo
 	 */
 	public void postorden(Nodo<T> n) {
 		if(n!=null) {
@@ -80,8 +79,8 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	}
 
 	/**
-	 * Vetifica si un elemento existe en el ï¿½rbol binario
-	 * @param n Nodo raï¿½z
+	 * Vetifica si un elemento existe en el ïarbol
+	 * @param n Nodo 
 	 * @param elemento Elemento a buscar
 	 * @return true si lo encuentra
 	 */
@@ -99,9 +98,9 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	}
 
 	/**
-	 * Cuenta todos los elementos que hay en el ï¿½rbol
-	 * @param n Nodo raï¿½z
-	 * @return Peso del ï¿½rbol
+	 * Cuenta todos los elementos que hay en el arbol
+	 * @param n Nodo
+	 * @return Peso del arbol
 	 */
 	public int obtenerPeso(Nodo<T> n) {
 
@@ -113,8 +112,8 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 	}
 
 	/**
-	 * Devuelve la altura del ï¿½rbol
-	 * @param n Nodo raï¿½z
+	 * Devuelve la altura del arbol
+	 * @param n Nodo
 	 * @return Altura del arbol
 	 */
 	public int obtenerAltura(Nodo<T> n, int prof) {
@@ -137,7 +136,7 @@ public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializab
 
 	/**
 	 * Obtiene el nivel de un nodo
-	 * @param nodo Nodo raï¿½z
+	 * @param nodo Nodo 
 	 * @param elemento, elemento a buscar
 	 * @param nivel nivel del nodo
 	 * @return nivel del nodo
@@ -161,8 +160,8 @@ public int obtenerNivel(Nodo <T> nodo, T elemento, int nivel) {
 
 /**
  * Cuenta el numero de hojas
- * @param n, nodo raï¿½z
- * @return numero de hojas del ï¿½rbol
+ * @param n, nodo 
+ * @return numero de hojas del arbol
  */
 public int contarHojas(Nodo <T> n ) {
 	if (n!=null) {

@@ -3,8 +3,8 @@ package model;
 import java.io.Serializable;
 
 /**
- * Clase que representa un Nodo del �rbol binario
- * @author dbonilla
+ * Clase que representa un Nodo del arbol binario
+ * @author didi 6 niko
  *
  * @param <T>
  */
@@ -26,7 +26,7 @@ public class Nodo<T extends Comparable<T>> implements Serializable {
 	}
 
 	/**
-	 * Agrega un nuevo elemento en el �rbol
+	 * Agrega un nuevo elemento en el arbol
 	 * @param elemento Nuevo dato
 	 * @return true si lo pudo guardar
 	 */
