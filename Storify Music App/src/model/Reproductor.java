@@ -24,65 +24,43 @@ public class Reproductor implements Serializable{
 	public Reproductor() {
 		super();
 		quemarDatosAdmin();
-		quemarDatos();
+		inicializarDatos();
 	}
 
-	private void quemarDatos() {
-		Usuario usr1 = new Usuario("Juan", "Brito", "alambrito@qlo.lor", "epenleatsugel");
-		Usuario usr2 = new Usuario("Alejandro", "Herez", "alejandrito@qlo.lor", "epenleatsugel");
-		Usuario usr3 = new Usuario("Pablo", "Nelson", "pablito@qlo.lor", "epenleatsugel");
-		tablaUsuarios.put("alambrito@qlo.lor", usr1);
-		tablaUsuarios.put("alejandrito@qlo.lor", usr2);
-		tablaUsuarios.put("pablito@qlo.lor", usr3);
+	private void inicializarDatos() {
+		Usuario usr1 = new Usuario("Nico", "Eche", "correo", "Nico");
+		tablaUsuarios.put("correo", usr1);
 
-		Artista a1 = new Artista("Jose Jose", "1", "Colombiana", "balada", false);
+
+		Artista a1 = new Artista("Jeanette", "1", "Colombiana", "balada", false);
 		Artista a2 = new Artista("Jeanette", "2", "Colombiana", "balada", false);
-		Artista a3 = new Artista("Calamaro", "3", "Argentino", "rock", false);
-		Artista a4 = new Artista("Daft Punk", "4", "Estado Unidense", "pop", false);
-		Artista a5 = new Artista("Gnarls", "5", "Estado Unidense", "alternativo", false);
-		Artista a6 = new Artista("Nolan", "6", "Estado Unidense", "alternativo", false);
+		Artista a3 = new Artista("Melendi", "3", "Espanol", "rock", false);
+
 		arbolArtista.agregar(a1);
 		arbolArtista.agregar(a2);
 		arbolArtista.agregar(a3);
-		arbolArtista.agregar(a4);
-		arbolArtista.agregar(a5);
-		arbolArtista.agregar(a6);
 
 		artistaInterfaz.add(a1);
 		artistaInterfaz.add(a2);
 		artistaInterfaz.add(a3);
-		artistaInterfaz.add(a4);
-		artistaInterfaz.add(a5);
-		artistaInterfaz.add(a6);
 
+		Cancion c1 = new Cancion("Por que te vas", "1",  "balada", "2002", "https://www.youtube.com/watch?v=TjUhXbGdLYo" , "Jeanette");
+		Cancion c2 = new Cancion("Frente a Frente", "2",  "balada", "2002", "https://www.youtube.com/watch?v=6ys7i-kW-lQ&list=RDTjUhXbGdLYo&index=5" , "Jeanette");
+		Cancion c3 = new Cancion("Violinista en tu tejado", "3", "rock", "2013",  "https://www.youtube.com/watch?v=6YOWIaGLWe8" , "Melendi");
 
-		Cancion c1 = new Cancion("El triste", "1", "lostristes", "balada", "catarula", "2002", "2:20", "https://www.youtube.com/watch?v=E20G25SCAEg&ab_channel=Jos%C3%A9Jos%C3%A9Oficial" , "Jose Jose");
-		Cancion c2 = new Cancion("Amar y querer", "2", "lostristes", "balada", "catarula", "2020", "3:20", "https://www.youtube.com/watch?v=a3xjfTEXFWg&ab_channel=Jos%C3%A9Jos%C3%A9-Topic" , "Jose Jose");
-		Cancion c3 = new Cancion("Por que te vas", "3", "porktevas", "balada", "catarula", "2018", "2:20", "https://www.youtube.com/watch?v=TjUhXbGdLYo&ab_channel=Jeanette" , "Jeanette");
-		Cancion c4 = new Cancion("Flaca", "4", "losflacos", "rock", "catarula", "2002", "6:20", "https://www.youtube.com/watch?v=uEV4RqqnlSE&ab_channel=Andr%C3%A9sCalamaro-Topic" , "Calamaro");
-		Cancion c5 = new Cancion("Instant Crush", "5", "instant", "pop", "catarula", "2002", "4:20", "https://www.youtube.com/watch?v=a5uQMwRMHcs&ab_channel=DaftPunkVEVO" , "Daft Punk");
-		Cancion c6 = new Cancion("Something About Us", "6", "instant", "pop", "catarula", "2002", "2:20", "https://www.youtube.com/watch?v=E20G25SCAEg&ab_channel=Jos%C3%A9Jos%C3%A9Oficial" , "Daft Punk");
-		Cancion c7 = new Cancion("Crazy", "7", "loscreisis", "alternativo", "catarula", "2002", "3:20", "https://www.youtube.com/watch?v=-N4jf6rtyuw&ab_channel=GnarlsBarkleyOfficial" , "Gnarls");
-		Cancion c8 = new Cancion("Interestellar", "8", "teamonolan", "alternativo", "catarula", "2002", "2:20", "https://www.youtube.com/watch?v=UDVtMYqUAyw&ab_channel=Cin%C3%A9mavore" , "Nolan");
 		canciones.agregarfinal(c1);
 		canciones.agregarfinal(c2);
 		canciones.agregarfinal(c3);
-		canciones.agregarfinal(c4);
-		canciones.agregarfinal(c5);
-		canciones.agregarfinal(c6);
-		canciones.agregarfinal(c7);
-		canciones.agregarfinal(c8);
 
 		ArrayList<Cancion> usrCanciones = new ArrayList<>();
 		usrCanciones.add(c1);
 		usrCanciones.add(c2);
 		usrCanciones.add(c3);
-		usr3.setListaCanciones(usrCanciones);
+
 		ListaDoble<Cancion> usrCan = new ListaDoble<>();
 		for (Cancion cancion : usrCanciones) {
 			usrCan.agregarfinal(cancion);
 		}
-		usr3.setListaRepr(usrCan);
 	}
 
 
@@ -220,11 +198,6 @@ public class Reproductor implements Serializable{
 
 
 		Cancion cancion = new Cancion();
-
-		cancion.setAlbum(album);
-	
-		cancion.setCodigo(codigo);
-	
 		cancion.setGenero(genero);
 		cancion.setNombre(nombre);
 		cancion.setURL(uRL);
