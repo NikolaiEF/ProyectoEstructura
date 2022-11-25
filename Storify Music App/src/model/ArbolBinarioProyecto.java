@@ -3,15 +3,12 @@ package model;
 import java.io.Serializable;
 
 /**
- * Clase que representa una estructura de datos tipo �rbol Binario de B�squeda
- *@author dbonilla
+ *@author didi & niko
  * @param <T>
  */
 public class ArbolBinarioProyecto<T extends Comparable<T>> implements Serializable{
 
-	/**
-	 *
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private Nodo<T> raiz;
 	private int peso;
