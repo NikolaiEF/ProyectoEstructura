@@ -1,10 +1,13 @@
 package controller;
 
 import java.io.File;
+import java.util.Optional;
 
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -119,7 +122,12 @@ public class CancionVIewController {
 			genero = "electronica";
 		}
 
-		aplicacion.crearCancion( nombre, album, URL, artista, codigo, genero);
+		if (!(nombre.equals("") && album.equals("") && URL.equals("") && artista.equals("") && codigo.equals("")
+				&& genero.equals(""))) {
+			aplicacion.crearCancion(nombre, album, URL, artista, codigo, genero);
+		} else {
+			mostrarMensajeError("Hay campos sin completar");
+		}
 
 	}
 
@@ -128,6 +136,20 @@ public class CancionVIewController {
 
 		aplicacion.devolverInicio();
 
+	}
+
+	private boolean mostrarMensajeError(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setHeaderText(null);
+		alert.setTitle("Confirmacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

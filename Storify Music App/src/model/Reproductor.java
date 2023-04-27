@@ -87,7 +87,7 @@ public class Reproductor implements Serializable {
 
 		if (tablaUsuarios.containsKey(newUser.getCorreo()) == false) {
 			mostrarMensajeInformacion("El usuario fue creado satisfactoriamente");
-			tablaUsuarios.put(newUser.getCorreo(), newUser);
+			tablaUsuarios.put(newUser.getClave(), newUser);
 			return true;
 		} else {
 			mostrarMensajeError("Este usuario ya existe");

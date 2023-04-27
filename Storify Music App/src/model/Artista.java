@@ -7,6 +7,7 @@ public class Artista implements Comparable<Artista>, Serializable{
 	/**
 	 *
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	String nombre, codigo, nacionalidad, genero ;
 	boolean isDuo;

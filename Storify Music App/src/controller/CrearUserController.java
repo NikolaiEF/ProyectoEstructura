@@ -37,12 +37,11 @@ public class CrearUserController {
 		String clave = passContra.getText();
 		String correo = txtEmailCrear.getText();
 
-	
-			if (!(nombre.equals("") && apellido.equals("") && clave.equals("") && correo.equals(""))) {
-				aplicacion.crearUsuario(nombre, apellido, clave, correo);
-			}else {
-				mostrarMensajeError("Hay campos sin completar");
-			}
+		if (!(nombre.equals("") && apellido.equals("") && clave.equals("") && correo.equals(""))) {
+			aplicacion.crearUsuario(nombre, apellido, clave, correo);
+		} else {
+			mostrarMensajeError("Hay campos sin completar");
+		}
 
 	}
 
@@ -63,7 +62,6 @@ public class CrearUserController {
 		} else {
 			return false;
 		}
-
 	}
 
 }
